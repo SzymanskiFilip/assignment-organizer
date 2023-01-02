@@ -1,27 +1,47 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div class="container">
+    <div class="button-row">
+      <Button buttonTitle="Home" bgColor="#00c853"/>
+      <Button pathToNavigate="/editor" buttonTitle="Editor" bgColor="black"/>
+    </div>
+    <router-view/>
+  </div>
+  
 </template>
-
 <script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+  import { defineComponent } from "@vue/runtime-core";
+import Button from "./components/Button.vue";
 
-export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    name: 'App',
+    components: {
+      Button
+    },
+    data(){
+      return {
+        assignments: [],
+      }
+    }
   }
-});
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+
+  .container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 50vw;
+    height: 50vh;
+    padding: 1rem;
+    border: 1px solid black;
+  }
+
+  .button-row{
+    display: flex;
+    gap: 10px;
+  }
+
 </style>
