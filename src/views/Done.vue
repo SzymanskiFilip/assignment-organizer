@@ -37,3 +37,9 @@
         }
     })
 </script>
+
+<style scoped>
+    h1 {
+      font-family: 'Ubuntu', sans-serif;
+    }
+</style>

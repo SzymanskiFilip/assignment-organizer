@@ -1,5 +1,5 @@
 <template>
-    <button 
+    <button
     @click.prevent="goToPath()"
     v-bind:style="{backgroundColor: this.bgColor}"
     >
