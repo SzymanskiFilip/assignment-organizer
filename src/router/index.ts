@@ -1,6 +1,7 @@
 import {createRouter, createWebHistory} from "vue-router";
 import Home from "../views/Home.vue";
 import Editor from "../views/Editor.vue";
+import Done from "../views/Done.vue";
 
 export const routes = [
     {
@@ -10,6 +11,10 @@ export const routes = [
     {
         path: "/editor",
         component: Editor,
+    },
+    {
+        path: "/done",
+        component: Done
     }
 ];
 

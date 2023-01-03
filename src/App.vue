@@ -2,14 +2,14 @@
   <div class="container">
     <div class="button-row">
       <Button buttonTitle="Home" bgColor="#00c853"/>
+      <Button pathToNavigate="/done" buttonTitle="Done" bgColor="#2962ff"/>
       <Button pathToNavigate="/editor" buttonTitle="Editor" bgColor="black"/>
     </div>
-    <router-view/>
+    <router-view :tasks="assignments"/>
   </div>
   
 </template>
 <script lang="ts">
-  import { defineComponent } from "@vue/runtime-core";
 import Button from "./components/Button.vue";
 
   export default {
@@ -19,7 +19,22 @@ import Button from "./components/Button.vue";
     },
     data(){
       return {
-        assignments: [],
+        assignments: [
+          {
+            id: 1,
+            name: "Math p. 200",
+            date: "12.01.2022",
+            subject: "MATH",
+            done: false,
+          },
+          {
+            id: 2,
+            name: "English Text",
+            date: "17.01.2022",
+            subject: "ENG",
+            done: false,
+          },
+        ],
       }
     }
   }

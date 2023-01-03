@@ -1,17 +1,17 @@
 <template>
     <div :key="task.id" v-for="task in tasks">
         <Assignment 
-        v-if="!task.done"
+        v-if="task.done"
         :task="task"
         />
     </div>
-    <h1 v-if="noLeft()">No assignments left</h1>
+    <h1 v-if="noFinished()">No assignments were finished</h1>
 </template>
 
 <script lang="ts">
     import { defineComponent, PropType } from "@vue/runtime-core";
-    import assignment from "types/task";
     import Assignment from "../components/Assignment.vue";
+    import assignment from "../../types/task";
     
     export default defineComponent({
         name: "Home",
@@ -25,14 +25,14 @@
             }
         },
         methods: {
-            noLeft(){
-                let noLeft = true;
+            noFinished(){
+                let noFinished = true;
                 this.tasks.forEach(task => {
-                    if(!task.done){
-                        noLeft = false;
+                    if(task.done){
+                        noFinished = false;
                     }
                 })
-                return noLeft;
+                return noFinished;
             }
         }
     })
